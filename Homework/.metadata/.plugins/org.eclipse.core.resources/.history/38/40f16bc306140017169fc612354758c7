@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+
+public class Count21 {
+
+	public static void main(String[] args) {
+
+		Scanner keyboard = new Scanner(System.in);
+		int cpuRunningTotal = 0;
+		int userChoice = 0;
+		int runningTotal = 0;
+		do
+		{
+			while(cpuRunningTotal != 21)
+			{
+				final int COMPUTER = 3;
+				int userTurn;
+				boolean whosTurn = false;
+				boolean gameOver = false;
+				
+					if(whosTurn == false)
+					{
+						System.out.println("Computer turn: " + COMPUTER);
+						cpuRunningTotal += COMPUTER;
+						whosTurn = true;
+						System.out.println("COMPUTERS Running Total: " + cpuRunningTotal + "\n");
+						
+						if(cpuRunningTotal == 21)
+						{
+							JOptionPane.showMessageDialog(null,"The Computer Wins");
+							gameOver = true;
+						}
+						
+						whosTurn = true;
+					}
+					
+					if(whosTurn =  true && cpuRunningTotal != 21 && gameOver != true )
+					{
+						System.out.print("Your Turn Enter 1,2, or 3:");
+						userTurn = keyboard.nextInt();
+						while(userTurn != 1 && userTurn != 2 && userTurn != 3)
+						{
+							System.out.print("Please enter a valid option between 1 and 3: ");
+							userTurn = keyboard.nextInt();
+						}
+					
+						runningTotal += userTurn;
+						whosTurn = false;
+						System.out.println("Your Running Total: " + runningTotal + "\n" );
+					}
+					
+					if(gameOver == true)
+					{
+						System.out.print("Enter 5 to play again: " );
+						userChoice = keyboard.nextInt();
+						gameOver = false;
+						cpuRunningTotal = 0;
+						runningTotal = 0;
+					}
+			}	
+		} while(userChoice == 5);
+		
+		keyboard.close();
+	}	
+}

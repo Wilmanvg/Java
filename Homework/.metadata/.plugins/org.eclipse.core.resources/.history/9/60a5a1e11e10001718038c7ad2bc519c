@@ -1,0 +1,71 @@
+import java.util.Scanner;
+import java.lang.Math;
+import javax.swing.JOptionPane;
+
+
+public class Count21 {
+
+	public static void main(String[] args) {
+	
+		char userOption = 'N';
+		Scanner keyboard = new Scanner(System.in);
+		
+				
+		
+		do
+		{
+			int runningTotal = 0;
+			int computerRandom;
+			int userTurn;
+			boolean whosTurn = false;
+			
+			while(runningTotal <= 21)
+			{
+				if(whosTurn == false)
+				{
+					System.out.print("Computer turn: ");
+					
+					switch(runningTotal)
+					{
+					case 15: computerRandom = 2;
+							break;
+					case 18: computerRandom = 3;
+						break;
+					case 19: computerRandom = 2;
+						break;
+					case 20: computerRandom = 1;
+						break;
+					
+					default: computerRandom = (int)(Math.random() * 3 + 1);
+					}
+					
+					System.out.println(computerRandom);
+					runningTotal += computerRandom;
+					whosTurn = true;
+					System.out.println(runningTotal);
+					
+				}
+				
+				if(whosTurn =  true)
+				{
+					System.out.println("Your Turn Enter 1,2, or 3:");
+					userTurn = keyboard.nextInt();
+					while(userTurn != 1 && userTurn != 2 && userTurn != 3)
+					{
+						System.out.println("Please enter a valid option between 1 and 3: ");
+						userTurn = keyboard.nextInt();
+					}
+				
+					runningTotal += userTurn;
+					whosTurn = false;
+					System.out.println(runningTotal);
+				}
+			}
+			
+
+			keyboard.close();
+			
+		}while(userOption=='Y');		
+		
+	}
+}

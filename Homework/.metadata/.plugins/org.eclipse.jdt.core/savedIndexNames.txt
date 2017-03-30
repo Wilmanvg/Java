@@ -1,0 +1,6 @@
+INDEX VERSION 1.129+E:\CSC18A\Homework\.metadata\.plugins\org.eclipse.jdt.core
+2388770237.index
+4262152498.index
+268773406.index
+1728190600.index
+1543034723.index
